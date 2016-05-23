@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Timon Euler's homepage</title>
+	<meta charset="UTF-8" />
+    <meta name="description" content="Private homepage by Timon Euler" />
+    <meta name="keywords" content="Homepage,Website,Webseite,Internetpräsenz" />
+    <meta name="author" content="Timon Euler" />
+</h:head>
+<h:body>
+	<p:layout fullPage="true">
+		<p:layoutUnit id="header" position="north" resizable="false" size="50">
+			<h:form id="tab-form">
+				<p:tabView>
+					<p:tab id="home-tab" title="Home">
+						<p:layoutUnit id="center" position="center" resizable="true" size="200"
+				  					  minSize="40" maxSize="400">
+							<center><h3>home center</h3></center>
+						</p:layoutUnit>
+					</p:tab>
+					<p:tab id="about-tab" title="About">
+						
+						
+					</p:tab>
+					<p:tab id="home-icon-tab">
+						
+						
+					</p:tab>
+					<p:tab id="blog-tab" title="Blog">
+						
+						
+					</p:tab>
+					<p:tab id="contact-tab" title="Contact">
+						<ui:insert name="contact-content" />
+					</p:tab>
+				</p:tabView>
+			</h:form>
+		</p:layoutUnit>
+			<!--<ui:insert name="home-content" />-->
+		<p:layoutUnit id="footer" position="south" resizable="false" size="35">
+		
+			<h3>footer</h3>
+		
+		</p:layoutUnit>
+	</p:layout>
+</h:body>	
+</html>
