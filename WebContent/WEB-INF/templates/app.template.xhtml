@@ -13,35 +13,35 @@
     <meta name="author" content="Timon Euler" />
 </h:head>
 <h:body>
+	<ui:debug />
 	<p:layout fullPage="true">
 		<p:layoutUnit id="header" position="north" resizable="false" size="50">
-			<h:form id="tab-form">
-				<p:tabView>
-					<p:tab id="home-tab" title="Home">
-						<p:layoutUnit id="center" position="center" resizable="true" size="200"
-				  					  minSize="40" maxSize="400">
-							<center><h3>home center</h3></center>
-						</p:layoutUnit>
-					</p:tab>
-					<p:tab id="about-tab" title="About">
-						
-						
-					</p:tab>
-					<p:tab id="home-icon-tab">
-						
-						
-					</p:tab>
-					<p:tab id="blog-tab" title="Blog">
-						
-						
-					</p:tab>
-					<p:tab id="contact-tab" title="Contact">
-						<ui:insert name="contact-content" />
-					</p:tab>
-				</p:tabView>
+			<h:form>
+				<p:tabMenu activeIndex="#{param.i}">
+					<p:menuitem value="Home" outcome="home">
+						<f:param name="i" value="0" />
+					</p:menuitem>
+					<p:menuitem value="About" outcome="about">
+						<f:param name="i" value="1" />
+					</p:menuitem>
+					<p:menuitem outcome="home">
+						<f:param name="i" value="0" />
+					</p:menuitem>
+					<p:menuitem value="Blog" outcome="blog">
+						<f:param name="i" value="3" />
+					</p:menuitem>
+					<p:menuitem value="Contact" outcome="contact">
+						<f:param name="i" value="4" />
+					</p:menuitem>
+				</p:tabMenu>
 			</h:form>
 		</p:layoutUnit>
-			<!--<ui:insert name="home-content" />-->
+		
+		<p:layoutUnit id="content" position="center" resizable="true" size="200"
+				  	  minSize="40" maxSize="400">
+			<ui:insert name="content" />
+		</p:layoutUnit>
+			
 		<p:layoutUnit id="footer" position="south" resizable="false" size="35">
 		
 			<h3>footer</h3>
