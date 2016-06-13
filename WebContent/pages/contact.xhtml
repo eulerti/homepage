@@ -6,7 +6,30 @@
 	xmlns:p="http://primefaces.org/ui">
 <ui:define name="content">
 	<h:form>
-		<center><h3>contact center</h3></center>
+		<p:panel id="contact-panel" header="Kontaktformular">
+			<p:outputLabel for="salutation-btn" value="Anrede:" />
+			<p:selectOneButton id="salutation-btn">
+				<f:selectItem itemLabel="Frau" itemValue="Frau" />
+				<f:selectItem itemLabel="Herr" itemValue="Herr" />
+			</p:selectOneButton>		
+			<p:outputLabel for="firstname-txt" value="Name:" />
+				<p:inputText id="firstname-txt" label="Name" required="true" />
+			<p:outputLabel for="surname-txt" value="Nachname:" />
+				<p:inputText id="surname-txt" label="Nachname" required="true" />
+			<p:outputLabel for="street-txt" value="Straße + Hausnummer:" />
+				<p:inputText id="street-txt" label="Strasse" required="true" />
+				<p:inputText id="house_number-txt" label="Hausnummer" required="true" />
+			<p:outputLabel for="city_id-txt" value="PLZ:" />
+				<p:inputText id="city_id-txt" label="PLZ" required="true" />
+			<p:outputLabel for="city-txt" value="Ort:" />
+				<p:inputText id="city-txt" label="Ort" required="true" />
+			<p:outputLabel for="email-txt" value="E-Mail Adresse:" />
+				<p:inputText id="email-txt" label="E-Mail" required="true" />
+			<p:outputLabel for="phone-txt" value="Telefonnummer:" />
+				<p:inputText id="phone-txt" label="Telefonnummer" required="false" />	
+			<p:outputLabel for="cellphone-txt" value="Handynummer:" />
+				<p:inputText id="cellphone-txt" label="Handynummer" required="false" />				
+		</p:panel>
 	</h:form>
 </ui:define>
 </ui:composition>
