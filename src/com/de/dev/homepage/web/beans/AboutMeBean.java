@@ -1,45 +1,45 @@
 package com.de.dev.homepage.web.beans;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.annotation.PostConstruct;
 
-import com.de.dev.homepage.db.Home;
+import com.de.dev.homepage.db.AboutMe;
 import com.de.dev.homepage.utils.Age;
 
-@ManagedBean(name="home")
+@ManagedBean(name="about_me")
 @SessionScoped
-public class HomeBean {
+public class AboutMeBean {
 	private String fullText;
-	private int age;
+	private static int age;
 	
 	@PostConstruct
 	public void init() {
 		this.printText();
-		try {
-			Age.recalcAge();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		age = Age.getAge();
 	}
 	
 	public void printText() {
-		Home home = new Home();
-		setFullText(home.getBegruesung() + home.getHomepage() + home.getSchlusswort());
+		AboutMe about = new AboutMe();
+		fullText = about.getEinleitung() + about.getAktuell() + about.getVergangenheit()
+			+ about.getJob() + about.getLink() + about.getKontakt();
 		this.setFullText(fullText);
 	}
-
+	
+	public static int generateAge() {
+		try {
+			Age.recalcAge();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+			age = Age.getAge();
+		return age;
+	}
+	
 	public String getFullText() {
 		return fullText;
 	}
 
 	public void setFullText(String fullText) {
 		this.fullText = fullText;
-	}
-
-	public int getAge() {
-		return age;
 	}
 }

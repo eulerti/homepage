@@ -13,21 +13,20 @@
     <meta name="author" content="Timon Euler" />
 </h:head>
 <h:body>
-	<ui:debug />
 	<p:layout fullPage="true">
-		<p:layoutUnit id="header" position="north" resizable="false" size="50">
+		<p:layoutUnit position="north">
 			<h:form>
-				<p:tabMenu activeIndex="#{param.i}">
+				<p:tabMenu activeIndex="#{param.i}" style="height:98% !important">
 					<p:menuitem value="Home" outcome="home">
 						<f:param name="i" value="0" />
 					</p:menuitem>
-					<p:menuitem value="About" outcome="about">
+					<p:menuitem value="About Me" outcome="about_me">
 						<f:param name="i" value="1" />
 					</p:menuitem>
 					<p:menuitem outcome="home">
 						<f:param name="i" value="0" />
 					</p:menuitem>
-					<p:menuitem value="Blog" outcome="blog">
+					<p:menuitem value="About Homepage" outcome="about_hp">
 						<f:param name="i" value="3" />
 					</p:menuitem>
 					<p:menuitem value="Contact" outcome="contact">
@@ -37,15 +36,14 @@
 			</h:form>
 		</p:layoutUnit>
 		
-		<p:layoutUnit id="content" position="center" resizable="true" size="200"
-				  	  minSize="40" maxSize="400">
+		<p:layoutUnit position="center" style="margin-bottom:0px">
 			<ui:insert name="content" />
 		</p:layoutUnit>
 			
-		<p:layoutUnit id="footer" position="south" resizable="false" size="35">
-		
-			<h3>footer</h3>
-		
+		<p:layoutUnit position="south" size="40" style="margin-top:0px">
+			<h:form>
+				
+			</h:form>
 		</p:layoutUnit>
 	</p:layout>
 </h:body>	

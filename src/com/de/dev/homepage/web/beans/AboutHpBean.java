@@ -4,30 +4,22 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.de.dev.homepage.db.Home;
-import com.de.dev.homepage.utils.Age;
+import com.de.dev.homepage.db.AboutHp;
 
-@ManagedBean(name="home")
+@ManagedBean(name="about_hp")
 @SessionScoped
-public class HomeBean {
+public class AboutHpBean {
 	private String fullText;
-	private int age;
 	
 	@PostConstruct
 	public void init() {
 		this.printText();
-		try {
-			Age.recalcAge();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		age = Age.getAge();
 	}
 	
 	public void printText() {
-		Home home = new Home();
-		setFullText(home.getBegruesung() + home.getHomepage() + home.getSchlusswort());
+		AboutHp about = new AboutHp();
+		fullText = about.getGrund() + about.getArt() + about.getJsf()
+			+ about.getPf() + about.getCss();
 		this.setFullText(fullText);
 	}
 
@@ -37,9 +29,5 @@ public class HomeBean {
 
 	public void setFullText(String fullText) {
 		this.fullText = fullText;
-	}
-
-	public int getAge() {
-		return age;
 	}
 }
